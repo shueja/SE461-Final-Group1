@@ -58,47 +58,47 @@ public class SnakeGame extends JFrame {
 	/**
 	 * The Clock instance for handling the game logic.
 	 */
-	private Clock logicTimer;
+	public Clock logicTimer;
 	
 	/**
 	 * Whether or not we're running a new game.
 	 */
-	private boolean isNewGame;
+	public boolean isNewGame;
 		
 	/**
 	 * Whether or not the game is over.
 	 */
-	private boolean isGameOver;
+	public boolean isGameOver;
 	
 	/**	
 	 * Whether or not the game is paused.
 	 */
-	private boolean isPaused;
+	public boolean isPaused;
 	
 	/**
 	 * The list that contains the points for the snake.
 	 */
-	private LinkedList<Point> snake;
+	public LinkedList<Point> snake;
 	
 	/**
 	 * The list that contains the queued directions.
 	 */
-	private LinkedList<Direction> directions;
+	public LinkedList<Direction> directions;
 	
 	/**
 	 * The current score.
 	 */
-	private int score;
+	public int score;
 	
 	/**
 	 * The number of fruits that we've eaten.
 	 */
-	private int fruitsEaten;
+	public int fruitsEaten;
 	
 	/**
 	 * The number of points that the next fruit will award us.
 	 */
-	private int nextFruitScore;
+	public int nextFruitScore;
 	
 	/**
 	 * Creates a new SnakeGame instance. Creates a new window,
@@ -209,20 +209,20 @@ public class SnakeGame extends JFrame {
 				 * the logicTimer's pause flag accordingly.
 				 */
 				case KeyEvent.VK_P:
-					if(!isGameOver) {
-						isPaused = !isPaused;
+					if(!isGameOver) { // node P1
+						isPaused = !isPaused; // P2
 						logicTimer.setPaused(isPaused);
 					}
-					break;
+					break; // P3
 				
 				/*
 				 * Reset the game if one is not currently in progress.
 				 */
 				case KeyEvent.VK_ENTER:
-					if(isNewGame || isGameOver) {
-						resetGame();
+					if(isNewGame || isGameOver) { // node E1
+						resetGame(); // node E2
 					}
-					break;
+					break; // node E3
 				}
 			}
 			
@@ -253,7 +253,7 @@ public class SnakeGame extends JFrame {
 	/**
 	 * Starts the game running.
 	 */
-	private void startGame() {
+	public void startGame() {
 		/*
 		 * Initialize everything we're going to be using.
 		 */
@@ -355,21 +355,21 @@ public class SnakeGame extends JFrame {
 		 * after the update.
 		 */		
 		Point head = new Point(snake.peekFirst());
-		switch(direction) {
+		switch(direction) {// Node 1
 		case North:
-			head.y--;
+			head.y--; //2
 			break;
 			
 		case South:
-			head.y++;
+			head.y++;//3
 			break;
 			
 		case West:
-			head.x--;
+			head.x--;//4
 			break;
 			
 		case East:
-			head.x++;
+			head.x++;//5
 			break;
 		}
 		
@@ -378,7 +378,8 @@ public class SnakeGame extends JFrame {
 		 * return that it's collided with itself, as both cases are handled
 		 * identically.
 		 */
-		if(head.x < 0 || head.x >= BoardPanel.COL_COUNT || head.y < 0 || head.y >= BoardPanel.ROW_COUNT) {
+		if(head.x < 0 || head.x >= BoardPanel.COL_COUNT || head.y < 0 || head.y >= BoardPanel.ROW_COUNT) {//6
+			//7
 			return TileType.SnakeBody; //Pretend we collided with our body.
 		}
 		
@@ -391,8 +392,10 @@ public class SnakeGame extends JFrame {
 		 * incase the tile we hit was the tail piece that was just removed
 		 * to prevent a false game over.
 		 */
+		//8
 		TileType old = board.getTile(head.x, head.y);
 		if(old != TileType.Fruit && snake.size() > MIN_SNAKE_LENGTH) {
+			//9
 			Point tail = snake.removeLast();
 			board.setTile(tail, null);
 			old = board.getTile(head.x, head.y);
@@ -409,16 +412,17 @@ public class SnakeGame extends JFrame {
 		 * If more than one direction is in the queue, poll it to read new
 		 * input.
 		 */
-		if(old != TileType.SnakeBody) {
+		if(old != TileType.SnakeBody) {//10
+			//11
 			board.setTile(snake.peekFirst(), TileType.SnakeBody);
 			snake.push(head);
 			board.setTile(head, TileType.SnakeHead);
 			if(directions.size() > 1) {
-				directions.poll();
+				directions.poll();//12
 			}
 		}
 				
-		return old;
+		return old;//13
 	}
 	
 	/**

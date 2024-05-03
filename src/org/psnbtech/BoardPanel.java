@@ -67,7 +67,7 @@ public class BoardPanel extends JPanel {
 	/**
 	 * The array of tiles that make up this board.
 	 */
-	private TileType[] tiles;
+	public TileType[] tiles;
 		
 	/**
 	 * Creates a new BoardPanel instance.
@@ -104,6 +104,9 @@ public class BoardPanel extends JPanel {
 	 * @param x The x coordinate of the tile.
 	 * @param y The y coordinate of the tile.
 	 * @param type The type to set the tile to.
+	 * 
+	 * TODO: possible bug? each increase in Y should increase by COL_Count
+	 * TODO: this does not check axes independently
 	 */
 	public void setTile(int x, int y, TileType type) {
 		tiles[y * ROW_COUNT + x] = type;

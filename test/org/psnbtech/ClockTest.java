@@ -15,16 +15,14 @@ import org.psnbtech.SnakeGame;
 class ClockTest {
 
 	Clock clock;
-	Robot robot;
 	final float cyclesPerSecond = 10.0f;
 	@BeforeEach
-	void setUp() throws Exception {
+	void setUp() {
 		clock = new Clock(cyclesPerSecond);
-		robot = new Robot();
 	}
 
 	@AfterEach
-	void tearDown() throws Exception {
+	void tearDown() {
 	}
 
 	@Test
