@@ -32,7 +32,7 @@ public class SnakeGame extends JFrame {
 	 * right when the game starts, so that we're not just a head moving
 	 * around on the board.
 	 */
-	private static final int MIN_SNAKE_LENGTH = 5;
+	public static final int MIN_SNAKE_LENGTH = 5;
 	
 	/**
 	 * The maximum number of directions that we can have polled in the
@@ -43,7 +43,7 @@ public class SnakeGame extends JFrame {
 	/**
 	 * The BoardPanel instance.
 	 */
-	private BoardPanel board;
+	public BoardPanel board;
 	
 	/**
 	 * The SidePanel instance.
@@ -338,9 +338,10 @@ public class SnakeGame extends JFrame {
 	
 	/**
 	 * Updates the snake's position and size.
+	 * Precondition: The snake head is in-bounds
 	 * @return Tile tile that the head moved into.
 	 */
-	private TileType updateSnake() {
+	public TileType updateSnake() {
 
 		/*
 		 * Here we peek at the next direction rather than polling it. While
