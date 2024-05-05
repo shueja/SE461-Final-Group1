@@ -21,9 +21,7 @@ class BoardPanelTest {
 		panel = new BoardPanel(game);
 	}
 
-	@AfterEach
-	void tearDown() {
-	}
+
 
 	@Test
 	void testPanelSize() {
@@ -93,6 +91,7 @@ class BoardPanelTest {
 	void testSetTileSnakeBody() {
 		BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
 		panel.drawTile(0, 0, TileType.SnakeBody, image.getGraphics());
+		
 	}
 	@Test
 	void testSetTileNorthHead() {

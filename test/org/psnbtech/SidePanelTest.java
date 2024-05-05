@@ -19,9 +19,6 @@ class SidePanelTest {
 		game = new SnakeGame();
 	}
 
-	@AfterEach
-	void tearDown() throws Exception {
-	}
 
 	@Test
 	void testPanelSize() {

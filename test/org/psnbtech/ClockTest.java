@@ -21,9 +21,7 @@ class ClockTest {
 		clock = new Clock(cyclesPerSecond);
 	}
 
-	@AfterEach
-	void tearDown() {
-	}
+
 
 	@Test
 	void testConstructor() {

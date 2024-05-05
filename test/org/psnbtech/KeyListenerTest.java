@@ -23,9 +23,6 @@ class KeyListenerTest {
 		
 	}
 
-	@AfterEach
-	void tearDown() {
-	}
 	
 	void testEnterKey(boolean isNewGame, boolean isGameOver, boolean expectedReset) {
 		try {

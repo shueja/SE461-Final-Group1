@@ -26,9 +26,6 @@ abstract class UpdateSnakeTest {
 		
 	}
 
-	@AfterEach
-	void tearDown() {
-	}
 	
 	void testUpdateSnakeHitsWall() {
 		game.initGame();

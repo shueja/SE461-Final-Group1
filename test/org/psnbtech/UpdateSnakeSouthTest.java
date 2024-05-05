@@ -15,7 +15,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.psnbtech.SnakeGame;
 
-class UpdateSnakeSouthTest extends UpdateSnakeTest {
+public class UpdateSnakeSouthTest extends UpdateSnakeTest {
 
 	@BeforeEach
 	void setDir() {
