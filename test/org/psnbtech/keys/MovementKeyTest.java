@@ -76,6 +76,7 @@ abstract class MovementKeyTest {
 		testKey(false, true, new LinkedList(), false);
 	}
 	
+	
 	/**
 	 * 1,2,5
 	 */

@@ -22,7 +22,6 @@ class BoardPanelTest {
 	}
 
 
-
 	@Test
 	void testPanelSize() {
 		var size = panel.getPreferredSize();

@@ -12,6 +12,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.psnbtech.SnakeGame;
 
+
 class ClockTest {
 
 	Clock clock;
