@@ -43,7 +43,7 @@ abstract class UpdateSnakeTest {
 			case South:
 			case East:
 				default:
-				game.snake.push(new Point(BoardPanel.COL_COUNT, BoardPanel.ROW_COUNT));
+				game.snake.push(new Point(BoardPanel.COL_COUNT-1, BoardPanel.ROW_COUNT-1));
 				
 			}
 			TileType result = game.updateSnake();
@@ -124,32 +124,40 @@ abstract class UpdateSnakeTest {
 	}
 	
 	/**
-	 * (1, n, 6, 7, 14)
+	 * 1. (1, n, 6, 7, 14)
 	 */
 	@Test
 	void testHitsWall() {
 		testUpdateSnakeHitsWall();
 	}
 	/**
-	 * (1, n, 6, 8, 10, 13, 14)
+	 * 2. (1, n, 6, 8, 10, 13, 14)
 	 */
 	@Test
 	void testShortHitsBody() {
 		testUpdateSnake(false, TileType.SnakeBody, false);
 	}
 	/**
-	 * (1, n, 6, 8, 9, 10, 13, 14) 
+	 * 3. (1, n, 6, 8, 9, 10, 13, 14) 
 	 */
 	@Test
 	void testLongHitsBody() {
 		testUpdateSnake(true, TileType.SnakeBody, false);
 	}
 	/**
-	 * (1, n, 6, 8, 10, 11, 13, 14) 
+	 * 4. (1, n, 6, 8, 10, 11, 13, 14) 
 	 */
 	@Test
 	void testLongHitsFruit() {
 		testUpdateSnake(true, TileType.Fruit, false);
+	}
+	
+	/**
+	 * 5. (1, n, 6, 8, 9, 10, 11, 13, 14)
+	 */
+	@Test
+	void testLongHitsNone() {
+		testUpdateSnake(true, null, false);;
 	}
 //	/**
 //	 * (1, n, 6, 8, 10, 11, 13, 14) 
@@ -165,16 +173,18 @@ abstract class UpdateSnakeTest {
 //	void testShortHitsNone() {
 //		testUpdateSnake(false, null, false);
 //	}
-	/**
-	 * (1, n, 6, 8, 9, 10, 11, 13, 14)
-	 */
-	@Test
-	void testLongHitsNone() {
-		testUpdateSnake(true, null, false);;
-	}
+
 
 	/**
-	 * (1, n, 6, 8, 9, 10, 11, 12, 13, 14)
+	 * 6. (1, n, 6, 8, 10, 11, 12, 13, 14) 
+	 */
+	@Test
+	void testLongHitsFruitDir() {
+		testUpdateSnake(true, TileType.Fruit, true);
+
+	}
+	/**
+	 * 7. (1, n, 6, 8, 9, 10, 11, 12, 13, 14)
 	 */
 	@Test
 	void testLongHitsNoneDir() {
@@ -182,13 +192,6 @@ abstract class UpdateSnakeTest {
 
 	}
 	
-	/**
-	 * (1, n, 6, 8, 10, 11, 12, 13, 14) 
-	 */
-	@Test
-	void testLongHitsFruitDir() {
-		testUpdateSnake(true, TileType.Fruit, true);
 
-	}
 
 }
