@@ -145,16 +145,16 @@ class SnakeGameTest {
 	
 	@Test
 	void testUpdateGameCollisionWithFruit() {
-		testUpdateGame(TileType.Fruit, 1, 100, false, false);//removed int expectedScore	
+		testUpdateGame(TileType.Fruit, 1, 100, false, false);	
 	}
 	
 	@Test
 	void testUpdateGameCollisionWithSnakeBody() {
-		testUpdateGame(TileType.SnakeBody, 0, 100, true, true);//removed int expectedScore	
+		testUpdateGame(TileType.SnakeBody, 0, 100, true, true);	
 	}
 	
 	@Test
 	void testUpdateGameNoCollision() {
-		testUpdateGame(null, 0, 99, false, false);//removed int expectedScore	
+		testUpdateGame(null, 0, 99, false, false);	
 	}
 }
