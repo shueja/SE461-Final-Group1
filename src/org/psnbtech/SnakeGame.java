@@ -505,7 +505,7 @@ public class SnakeGame extends JFrame {
 	/**
 	 * Spawns a new fruit onto the board.
 	 */
-	private void spawnFruit() {
+	public void spawnFruit() {
 		//Reset the score for this fruit to 100.
 		this.nextFruitScore = 100;
 
