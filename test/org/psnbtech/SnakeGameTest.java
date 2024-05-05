@@ -27,7 +27,7 @@ public class SnakeGameTest {
 
 	
 
-	void testUpdateGame(TileType collision, int expectedFruitsEaten, boolean expectedGameOver, boolean expectedPaused) {
+	void testUpdateGame(TileType collision, int expectedFruitsEaten, int expectedFruitScore, boolean expectedGameOver, boolean expectedPaused) {
 		
 		game.initGame();
 		game.resetGame();
@@ -48,21 +48,22 @@ public class SnakeGameTest {
 		assertEquals(expectedGameOver, game.isGameOver(), "Game over state mismatch.");
 		//assertEquals(expectedScore, game.getScore(), "Score mismatch.");
 		assertEquals(expectedFruitsEaten, game.getFruitsEaten(), "Fruits eaten mismatch.");
-		assertEquals(expectedPaused, game.logicTimer.isPaused, "Game logicTimer paused mismatch.");		
+		assertEquals(expectedPaused, game.logicTimer.isPaused, "Game logicTimer paused mismatch.");
+		assertTrue(expectedFruitScore == game.nextFruitScore , "Next fruit score mismatch.");
 	}
 	
 	@Test
 	void testUpdateGameCollisionWithFruit() {
-		testUpdateGame(TileType.Fruit, 1, false, false);//removed int expectedScore	
+		testUpdateGame(TileType.Fruit, 1, 100, false, false);	
 	}
 	
 	@Test
 	void testUpdateGameCollisionWithSnakeBody() {
-		testUpdateGame(TileType.SnakeBody, 0, true, true);//removed int expectedScore	
+		testUpdateGame(TileType.SnakeBody, 0, 100, true, true);	
 	}
 	
 	@Test
 	void testUpdateGameNoCollision() {
-		testUpdateGame(null, 0, false, false);//removed int expectedScore	
+		testUpdateGame(null, 0, 99, false, false);	
 	}
 }
